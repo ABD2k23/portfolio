@@ -30,7 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${hanken.variable} ${ztBros.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* <div className="upper"></div> */}
+        {children}
+        {/* <div className="lower"></div> */}
+      </body>
     </html>
   );
 }

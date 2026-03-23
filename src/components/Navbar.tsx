@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Click from "./Click";
 
 const Navbar = () => {
@@ -53,7 +52,7 @@ const Navbar = () => {
           }
         />
       </div>
-      <h1>Muhammad Abdullah</h1>
+      <h2>Muhammad Abdullah</h2>
       <Click path={"/"} content={"Contact"} />
     </div>
   );

@@ -1,11 +1,13 @@
+import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Work from "@/components/Work";
 
 const page = () => {
   return (
-    <div className="bg-skin h-screen">
-      <div className="upper"></div>
+    <div className="bg-skin text-green ">
       <Navbar />
-      <div className="lower"></div>
+      <Hero />
+      <Work />
     </div>
   );
 };

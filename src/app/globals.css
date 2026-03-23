@@ -26,3 +26,19 @@
     rgba(67, 95, 96, 0.32)
   );
 }
+
+h1 {
+  @apply tracking-normal leading-none font-serif uppercase;
+  font-size: clamp(32px, 16px + 5vw, 96px);
+}
+
+h2,
+.btn {
+  @apply tracking-[0.01em] leading-[120%] font-sans font-bold;
+  font-size: clamp(14px, 13.5px + 0.1563vw, 16px);
+}
+
+p {
+  @apply tracking-[0.01em] leading-[120%] font-sans;
+  font-size: clamp(14px, 13.5px + 0.1563vw, 16px);
+}
