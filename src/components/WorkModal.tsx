@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Click from "./Click";
@@ -84,7 +83,7 @@ const WorkModal = ({
       {isOpen && (
         <motion.div
           key="backdrop"
-          className="fixed inset-0 z-50 flex items-center justify-center p-[24px]"
+          className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-0 sm:p-[24px]"
           style={{
             backgroundColor: "rgba(0,0,0,0.65)",
             backdropFilter: "blur(8px)",
@@ -97,13 +96,18 @@ const WorkModal = ({
         >
           <motion.div
             key="modal"
-            className="relative w-full max-w-[560px] rounded-[20px] overflow-hidden text-green bg-skin"
+            className="relative w-full sm:max-w-[560px] rounded-t-[24px] sm:rounded-[20px] overflow-hidden text-green bg-skin"
             variants={modalVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Drag handle — mobile only */}
+            <div className="flex justify-center pt-3 pb-1 sm:hidden">
+              <div className="w-10 h-1 rounded-full opacity-30 bg-current" />
+            </div>
+
             {/* Close button */}
             <motion.button
               onClick={onClose}
@@ -120,7 +124,7 @@ const WorkModal = ({
               <h2 className="text-skin!">Close</h2>
             </motion.button>
 
-            {/* Thumbnail with zoom-in reveal */}
+            {/* Thumbnail */}
             <motion.div
               className="relative w-full aspect-[16/9] overflow-hidden"
               initial={{ scale: 1.06 }}
@@ -131,23 +135,23 @@ const WorkModal = ({
                 alt={alt}
                 fill
                 className="object-cover"
-                sizes="560px"
+                sizes="(max-width: 640px) 100vw, 560px"
               />
             </motion.div>
 
             {/* Content */}
             <motion.div
-              className="p-[32px] flex flex-col gap-[24px]"
+              className="p-[20px] sm:p-[32px] flex flex-col gap-[20px] sm:gap-[24px]"
               variants={contentVariants}
               initial="hidden"
               animate="visible"
             >
               {/* Name + meta */}
               <motion.div
-                className="flex flex-col gap-[8px]"
+                className="flex flex-col gap-[6px] sm:gap-[8px]"
                 variants={itemVariants}
               >
-                <h1 style={{ fontSize: "clamp(24px, 5vw, 40px)" }}>{name}</h1>
+                <h1 style={{ fontSize: "clamp(22px, 5vw, 40px)" }}>{name}</h1>
                 <div className="flex gap-[16px]" style={{ opacity: 0.45 }}>
                   <p>{role}</p>
                   <p>·</p>
@@ -161,7 +165,10 @@ const WorkModal = ({
               </motion.p>
 
               {/* CTA */}
-              <motion.div variants={itemVariants}>
+              <motion.div
+                variants={itemVariants}
+                className="pb-[env(safe-area-inset-bottom)]"
+              >
                 <Click path={url} content="Visit Live Site" target="_blank" />
               </motion.div>
             </motion.div>

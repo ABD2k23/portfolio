@@ -2,7 +2,7 @@ import Click from "./Click";
 
 const Contact = () => {
   return (
-    <div className="py-[96px] flex items-start justify-center mx-auto w-full max-w-[800px] flex-col gap-8">
+    <div className="py-[96px] px-[32px] flex items-start justify-center mx-auto w-full max-w-[920px] flex-col gap-8">
       <div className="flex gap-2">
         <div className="py-2">
           <svg
@@ -20,55 +20,60 @@ const Contact = () => {
         </div>
         <h1>Contact</h1>
       </div>
+
       <form className="flex items-center justify-center w-full flex-col gap-8">
-        <div className="flex items-center justify-center w-full gap-16">
+        <div className="flex items-start justify-center w-full gap-8 flex-col md:flex-row md:gap-16">
+          {/* Left column */}
           <div className="w-full flex items-start gap-8 flex-col justify-center">
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Name"
-                className="placeholder:label outline-0  border-b border-b-green w-full p-2"
+                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Company Name"
-                className="placeholder:label outline-0  border-b border-b-green w-full p-2"
+                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Preferred Contact Time"
-                className="placeholder:label outline-0  border-b border-b-green w-full p-2"
+                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
               />
             </div>
           </div>
+
+          {/* Right column */}
           <div className="w-full flex items-start gap-8 flex-col justify-center">
             <div className="w-full">
               <input
                 type="text"
                 placeholder="What's the best way to reach you?"
-                className="placeholder:label outline-0  border-b border-b-green w-full p-2"
+                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Share your specific needs."
-                className="placeholder:label outline-0  border-b border-b-green w-full p-2"
+                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Project Budget"
-                className="placeholder:label outline-0  border-b border-b-green w-full p-2"
+                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
               />
             </div>
           </div>
         </div>
+
         <div className="w-full flex items-end justify-end">
           <Click target="_self" path="/" content="Submit" />
         </div>

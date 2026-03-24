@@ -2,15 +2,16 @@ import Click from "./Click";
 
 const Navbar = () => {
   return (
-    <div className=" flex items-center justify-between px-8 py-8">
-      <div className=" flex items-center justify-between gap-2">
+    <div className="flex items-center justify-between px-4 md:p-8 py-4">
+      {/* Social icons */}
+      <div className="flex items-center justify-start gap-2 flex-1">
         <Click
           target="_self"
           path="/"
           content={
             <svg
-              width="16"
-              height="16"
+              width="12"
+              height="12"
               viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -27,8 +28,8 @@ const Navbar = () => {
           path="/"
           content={
             <svg
-              width="16"
-              height="16"
+              width="12"
+              height="12"
               viewBox="0 0 16 16"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +55,42 @@ const Navbar = () => {
           }
         />
       </div>
-      <h2>Muhammad Abdullah</h2>
-      <Click path={"/"} content={"Contact"} target="_self" />
+
+      {/* Name — always optically centred */}
+      <div className="absolute left-1/2 -translate-x-1/2 hidden xs:block">
+        <h2 className="whitespace-nowrap">Muhammad Abdullah</h2>
+      </div>
+
+      {/* Contact — icon on mobile, text on md+ */}
+      <div className="flex justify-end flex-1">
+        <Click
+          path="/"
+          target="_self"
+          content={
+            <>
+              {/* Icon — mobile only */}
+              <span className="flex md:hidden">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.263 18.237C5.775 20.629 8.766 19.672 9.963 18.703C10.581 18.202 10.86 17.878 11.099 17.638C11.936 16.861 11.883 16.083 11.339 15.461C11.12 15.212 9.723 13.87 8.383 12.494C7.689 11.8 7.211 11.31 6.801 10.914C6.254 10.368 5.775 9.742 5.057 9.76C4.399 9.76 3.921 10.34 3.322 10.939C2.634 11.627 2.126 12.494 1.947 13.272C1.408 15.545 2.246 17.16 3.263 18.237ZM3.263 18.237L0.75 20.749M18.237 3.265C15.724 0.871 12.743 1.845 11.547 2.815C10.927 3.317 10.649 3.641 10.409 3.881C9.572 4.659 9.625 5.437 10.17 6.059C10.248 6.149 10.48 6.379 10.805 6.703M18.237 3.265C19.254 4.342 20.103 5.975 19.564 8.25C19.384 9.028 18.876 9.895 18.188 10.584C17.59 11.182 17.111 11.763 16.453 11.763C15.735 11.781 15.363 11.261 14.814 10.715M18.237 3.265L20.75 0.75M10.805 6.703C11.386 7.278 12.268 8.145 13.126 9.027C13.82 9.721 14.404 10.319 14.814 10.714L13.252 12.239M10.805 6.703L9.262 8.255"
+                    stroke="#EBE8D5"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+              {/* Text — desktop only */}
+              <span className="hidden md:flex">Contact</span>
+            </>
+          }
+        />
+      </div>
     </div>
   );
 };

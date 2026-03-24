@@ -3,44 +3,49 @@ import Click from "./Click";
 
 const About = () => {
   return (
-    <div className="flex items-center justify-center gap-8 flex-col w-full max-w-[1200px] px-[96px] py-[192] mx-auto">
-      <h1 className="w-full text-left">Muhammad Abdullah</h1>
-      <div className="flex items-start justify-between w-full">
-        {/*  */}
-        <div className="flex items-start justify-between aspect-3/4 max-w-[350px] flex-col w-full h-full pb-8">
+    <div className="flex items-center justify-center gap-8 flex-col w-full max-w-[920px] py-[192px] mx-auto px-[32px]">
+      <h1 className="w-full">Muhammad Abdullah</h1>
+
+      <div className="flex items-start justify-between w-full flex-col-reverse gap-12 md:flex-row md:gap-0">
+        {/* Left: text + socials */}
+        <div className="flex items-start justify-between flex-col w-full md:max-w-[350px] md:aspect-[3/4] md:h-full pb-0 md:pb-8 gap-8 md:gap-0">
           <div className="flex items-start justify-center gap-8 flex-col">
             <p className="w-full max-w-[420px]">
               Full-stack developer and web designer focused on building clean,
               fast, and user-driven digital experiences that actually solve real
               problems.
             </p>
+
             <div className="flex items-start justify-center gap-2 flex-col">
               <h2>Frontend & Styling</h2>
-              <div className="flex items-start justify-center gap-4">
+              <div className="flex items-start justify-start gap-4 flex-wrap">
                 <p>Next js</p>
                 <p>Typescript</p>
                 <p>Tailwind CSS</p>
               </div>
             </div>
+
             <div className="flex items-start justify-center gap-2 flex-col">
               <h2>Backend & Deployment</h2>
-              <div className="flex items-start justify-center gap-4">
+              <div className="flex items-start justify-start gap-4 flex-wrap">
                 <p>Neon Postgres</p>
                 <p>Drizzle ORM</p>
                 <p>Auth js</p>
                 <p>Vercel</p>
               </div>
             </div>
+
             <div className="flex items-start justify-center gap-2 flex-col">
-              <h2>Motion & Animatons</h2>
-              <div className="flex items-start justify-center gap-4">
+              <h2>Motion & Animations</h2>
+              <div className="flex items-start justify-start gap-4 flex-wrap">
                 <p>GSAP</p>
                 <p>Framer Motion</p>
                 <p>Lenis</p>
               </div>
             </div>
           </div>
-          <div className="flex items-start justify-center gap-4">
+
+          <div className="flex items-start justify-center gap-4 mt-8 md:mt-0">
             <Click
               target="_self"
               path="/"
@@ -92,7 +97,9 @@ const About = () => {
             />
           </div>
         </div>
-        <div className="relative w-full max-w-[350px] aspect-[3/4]">
+
+        {/* Right: image */}
+        <div className="relative w-full md:max-w-[350px] aspect-[3/4]">
           <Image
             src="/p.png"
             alt="My Profile Picture"

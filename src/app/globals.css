@@ -6,6 +6,8 @@
 
   --color-skin: #ebe8d5;
   --color-green: #435f60;
+
+  --breakpoint-xs: 520px;
 }
 .squircle {
   corner-shape: squircle;
