@@ -5,6 +5,7 @@ const Navbar = () => {
     <div className=" flex items-center justify-between px-8 py-8">
       <div className=" flex items-center justify-between gap-2">
         <Click
+          target="_self"
           path="/"
           content={
             <svg
@@ -22,6 +23,7 @@ const Navbar = () => {
           }
         />
         <Click
+          target="_self"
           path="/"
           content={
             <svg
@@ -53,7 +55,7 @@ const Navbar = () => {
         />
       </div>
       <h2>Muhammad Abdullah</h2>
-      <Click path={"/"} content={"Contact"} />
+      <Click path={"/"} content={"Contact"} target="_self" />
     </div>
   );
 };

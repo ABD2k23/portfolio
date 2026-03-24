@@ -1,13 +1,19 @@
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
-import Work from "@/components/Work";
+import WorkSection from "@/components/WorkSection";
 
 const page = () => {
   return (
-    <div className="bg-skin text-green ">
+    <div className="bg-skin text-green">
       <Navbar />
       <Hero />
-      <Work />
+      <WorkSection />
+      <About />
+      <Contact />
+      <Footer />
     </div>
   );
 };

@@ -10,7 +10,7 @@
 .squircle {
   corner-shape: squircle;
 }
-.upper {
+/* .upper {
   @apply h-[200px] w-full fixed top-0  left-0 right-0 pointer-events-none;
   background: linear-gradient(
     to bottom,
@@ -18,14 +18,21 @@
     rgba(67, 95, 96, 0)
   );
 }
-.lower {
-  @apply h-[200px] w-full  fixed bottom-0  left-0 right-0 pointer-events-none;
+/* ------------ */
+/* .lower {
+  @apply w-full fixed bottom-0 top-0 -z-10 left-0 right-0 pointer-events-none;
   background: linear-gradient(
     to bottom,
-    rgba(67, 95, 96, 0),
-    rgba(67, 95, 96, 0.32)
+    rgba(235, 232, 213, 1) 0%,
+    rgba(67, 95, 96, 01) 100%
   );
-}
+} */
+
+/* .lower:before {
+  content: "";
+  @apply absolute top-0 left-0 w-full h-[200px] pointer-events-none;
+  backdrop-filter: blur(2px);
+} */
 
 h1 {
   @apply tracking-normal leading-none font-serif uppercase;
@@ -38,7 +45,8 @@ h2,
   font-size: clamp(14px, 13.5px + 0.1563vw, 16px);
 }
 
-p {
+p,
+.label {
   @apply tracking-[0.01em] leading-[120%] font-sans;
   font-size: clamp(14px, 13.5px + 0.1563vw, 16px);
 }

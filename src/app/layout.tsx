@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import RainBackground from "@/components/RainBackground";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken-sans",
@@ -31,9 +33,8 @@ export default function RootLayout({
       className={`${hanken.variable} ${ztBros.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* <div className="upper"></div> */}
-        {children}
-        {/* <div className="lower"></div> */}
+        <RainBackground />
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );
