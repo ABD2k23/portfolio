@@ -104,7 +104,7 @@ const About = () => {
         {/* Right: image */}
         <div className="relative w-full md:max-w-[350px] aspect-[3/4]">
           <Image
-            src="/p.png"
+            src="/profile.png"
             alt="My Profile Picture"
             fill
             sizes="(max-width: 768px) 100vw, 350px"
