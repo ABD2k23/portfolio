@@ -1,10 +1,55 @@
+"use client";
+
+import { useState } from "react";
 import Click from "./Click";
 
 const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    contactTime: "",
+    reachBy: "",
+    needs: "",
+    budget: "",
+  });
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error();
+      setStatus("success");
+      setForm({
+        name: "",
+        company: "",
+        contactTime: "",
+        reachBy: "",
+        needs: "",
+        budget: "",
+      });
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <div
       id="Contact"
-      className="py-[96px] px-[16px]  sm:px-[32px] flex items-start justify-center mx-auto w-full max-w-[920px] flex-col gap-8"
+      className="py-[96px] px-[16px] sm:px-[32px] flex items-start justify-center mx-auto w-full max-w-[920px] flex-col gap-8"
     >
       <div className="flex gap-2">
         <div className="py-1 xs:py-2">
@@ -23,61 +68,84 @@ const Contact = () => {
         <h1>Contact</h1>
       </div>
 
-      <form className="flex items-center justify-center w-full flex-col gap-8">
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center justify-center w-full flex-col gap-8"
+      >
         <div className="flex items-start justify-center w-full gap-8 flex-col md:flex-row md:gap-16">
           {/* Left column */}
           <div className="w-full flex items-start gap-8 flex-col justify-center">
-            <div className="w-full">
-              <input
-                type="text"
-                placeholder="Name"
-                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
-              />
-            </div>
-            <div className="w-full">
-              <input
-                type="text"
-                placeholder="Company Name"
-                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
-              />
-            </div>
-            <div className="w-full">
-              <input
-                type="text"
-                placeholder="Preferred Contact Time"
-                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
-              />
-            </div>
+            <input
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              required
+              type="text"
+              placeholder="Name"
+              className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
+            />
+            <input
+              name="company"
+              value={form.company}
+              onChange={handleChange}
+              type="text"
+              placeholder="Company Name"
+              className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
+            />
+            <input
+              name="contactTime"
+              value={form.contactTime}
+              onChange={handleChange}
+              type="text"
+              placeholder="Preferred Contact Time"
+              className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
+            />
           </div>
 
           {/* Right column */}
           <div className="w-full flex items-start gap-8 flex-col justify-center">
-            <div className="w-full">
-              <input
-                type="text"
-                placeholder="What's the best way to reach you?"
-                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
-              />
-            </div>
-            <div className="w-full">
-              <input
-                type="text"
-                placeholder="Share your specific needs."
-                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
-              />
-            </div>
-            <div className="w-full">
-              <input
-                type="text"
-                placeholder="Project Budget"
-                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
-              />
-            </div>
+            <input
+              name="reachBy"
+              value={form.reachBy}
+              onChange={handleChange}
+              type="text"
+              placeholder="What's the best way to reach you?"
+              className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
+            />
+            <input
+              name="needs"
+              value={form.needs}
+              onChange={handleChange}
+              type="text"
+              placeholder="Share your specific needs."
+              className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
+            />
+            <input
+              name="budget"
+              value={form.budget}
+              onChange={handleChange}
+              type="text"
+              placeholder="Project Budget"
+              className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
+            />
           </div>
         </div>
 
-        <div className="w-full flex items-end justify-end">
-          <Click target="_self" path="/" content="Submit" />
+        <div className="w-full flex items-center justify-end gap-4">
+          {status === "success" && (
+            <p className="opacity-60">Message sent successfully!</p>
+          )}
+          {status === "error" && (
+            <p className="opacity-60">Something went wrong. Try again.</p>
+          )}
+          <Click
+            target="_self"
+            path="/"
+            content={status === "loading" ? "Sending..." : "Submit"}
+            onClick={(e) => {
+              if (status === "loading") e.preventDefault();
+            }}
+          />
         </div>
       </form>
     </div>
