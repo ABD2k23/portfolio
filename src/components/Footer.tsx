@@ -17,7 +17,7 @@ const Footer = () => {
   });
 
   const linkClass =
-    "hover:text-skin transition-colors duration-300 md:text-skin/75 text-skin";
+    "hover:text-skin transition-colors duration-300 md:text-skin/75 text-skin label";
 
   return (
     <div className="flex items-center justify-center h-dvh w-full gap-4 xs:gap-8 bg-green flex-col xs:flex-row">

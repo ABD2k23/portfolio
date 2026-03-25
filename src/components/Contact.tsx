@@ -4,13 +4,12 @@ const Contact = () => {
   return (
     <div
       id="Contact"
-      className="py-[96px] px-[32px] flex items-start justify-center mx-auto w-full max-w-[920px] flex-col gap-8"
+      className="py-[96px] px-[16px]  sm:px-[32px] flex items-start justify-center mx-auto w-full max-w-[920px] flex-col gap-8"
     >
       <div className="flex gap-2">
-        <div className="py-2">
+        <div className="py-1 xs:py-2">
           <svg
-            width="16"
-            height="17"
+            className="w-[8px] h-[8px] xs:w-[16px] xs:h-[16px]"
             viewBox="0 0 16 17"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -32,21 +31,21 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Name"
-                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
+                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Company Name"
-                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
+                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Preferred Contact Time"
-                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
+                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
               />
             </div>
           </div>
@@ -57,21 +56,21 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="What's the best way to reach you?"
-                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
+                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Share your specific needs."
-                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
+                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
               />
             </div>
             <div className="w-full">
               <input
                 type="text"
                 placeholder="Project Budget"
-                className="placeholder:label outline-0 border-b border-b-green w-full p-2"
+                className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
               />
             </div>
           </div>

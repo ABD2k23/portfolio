@@ -12,6 +12,10 @@
 .squircle {
   corner-shape: squircle;
 }
+::selection {
+  background-color: #435f60; /* your green */
+  color: #ebe8d5; /* your skin */
+}
 /* .upper {
   @apply h-[200px] w-full fixed top-0  left-0 right-0 pointer-events-none;
   background: linear-gradient(
