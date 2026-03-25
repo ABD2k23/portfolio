@@ -45,7 +45,7 @@ const WorkSection = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-[32px] md:gap-[96px] ">
+    <div id="Work" className="flex flex-col gap-[32px] md:gap-[96px] ">
       {works.map((work, index) => (
         <Work key={work.src} {...work} priority={index === 0} />
       ))}

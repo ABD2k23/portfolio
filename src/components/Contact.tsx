@@ -2,7 +2,10 @@ import Click from "./Click";
 
 const Contact = () => {
   return (
-    <div className="py-[96px] px-[32px] flex items-start justify-center mx-auto w-full max-w-[920px] flex-col gap-8">
+    <div
+      id="Contact"
+      className="py-[96px] px-[32px] flex items-start justify-center mx-auto w-full max-w-[920px] flex-col gap-8"
+    >
       <div className="flex gap-2">
         <div className="py-2">
           <svg

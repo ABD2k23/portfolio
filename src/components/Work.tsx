@@ -62,7 +62,7 @@ const Work = ({
   useEffect(() => {
     if (!isMobile) return;
     const show = setTimeout(() => setShowTapHint(true), 1000);
-    const hide = setTimeout(() => setShowTapHint(false), 3500);
+    const hide = setTimeout(() => setShowTapHint(false), 10000);
     return () => {
       clearTimeout(show);
       clearTimeout(hide);
@@ -137,7 +137,7 @@ const Work = ({
             {/* Desktop: spring cursor */}
             {!isMobile && (
               <motion.div
-                className="pointer-events-none absolute z-10 flex items-center justify-center rounded-full bg-skin text-green"
+                className="pointer-events-none absolute z-10 flex items-center justify-center bg-skin text-green px-4 py-2 pb-1 rounded-[16px] squircle"
                 style={{
                   x: cursorX,
                   y: cursorY,
@@ -145,17 +145,10 @@ const Work = ({
                   translateY: "-50%",
                   scale: cursorScale,
                   opacity: cursorOpacity,
-                  width: 96,
-                  height: 96,
                 }}
               >
                 <motion.div style={{ opacity: cursorOpacity }}>
-                  <h2
-                    className="select-none"
-                    style={{ fontSize: "13px", letterSpacing: "0.05em" }}
-                  >
-                    Click
-                  </h2>
+                  <h3 className="select-none">Click</h3>
                 </motion.div>
               </motion.div>
             )}

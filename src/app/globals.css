@@ -46,7 +46,10 @@ h2,
   @apply tracking-[0.01em] leading-[120%] font-sans font-bold;
   font-size: clamp(14px, 13.5px + 0.1563vw, 16px);
 }
-
+h3 {
+  @apply tracking-[0.01em] leading-[120%] font-serif uppercase;
+  font-size: clamp(24px, 22px + 0.625vw, 32px);
+}
 p,
 .label {
   @apply tracking-[0.01em] leading-[120%] font-sans;

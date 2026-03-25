@@ -3,7 +3,10 @@ import Click from "./Click";
 
 const About = () => {
   return (
-    <div className="flex items-center justify-center gap-8 flex-col w-full max-w-[920px] py-[192px] mx-auto px-[32px]">
+    <div
+      id="About"
+      className="flex items-center justify-center gap-8 flex-col w-full max-w-[920px] py-[192px] mx-auto px-[32px]"
+    >
       <h1 className="w-full">Muhammad Abdullah</h1>
 
       <div className="flex items-start justify-between w-full flex-col-reverse gap-12 md:flex-row md:gap-0">
@@ -47,8 +50,8 @@ const About = () => {
 
           <div className="flex items-start justify-center gap-4 mt-8 md:mt-0">
             <Click
-              target="_self"
-              path="/"
+              target="_blank"
+              path="https://www.instagram.com/abd.dev.web/"
               content={
                 <svg
                   width="16"
@@ -65,8 +68,8 @@ const About = () => {
               }
             />
             <Click
-              target="_self"
-              path="/"
+              target="_blank"
+              path="https://x.com/ABDK7K"
               content={
                 <svg
                   width="16"
