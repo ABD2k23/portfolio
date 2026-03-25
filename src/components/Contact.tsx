@@ -89,6 +89,7 @@ const Contact = () => {
               value={form.company}
               onChange={handleChange}
               type="text"
+              required
               placeholder="Company Name"
               className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
             />
@@ -97,6 +98,7 @@ const Contact = () => {
               value={form.contactTime}
               onChange={handleChange}
               type="text"
+              required
               placeholder="Preferred Contact Time"
               className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
             />
@@ -109,6 +111,7 @@ const Contact = () => {
               value={form.reachBy}
               onChange={handleChange}
               type="text"
+              required
               placeholder="What's the best way to reach you?"
               className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
             />
@@ -117,6 +120,7 @@ const Contact = () => {
               value={form.needs}
               onChange={handleChange}
               type="text"
+              required
               placeholder="Share your specific needs."
               className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
             />
@@ -125,6 +129,7 @@ const Contact = () => {
               value={form.budget}
               onChange={handleChange}
               type="text"
+              required
               placeholder="Project Budget"
               className="label outline-0 border-b border-b-green w-full p-1 xs:p-2"
             />
