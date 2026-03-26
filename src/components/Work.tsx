@@ -42,11 +42,17 @@ const Work = ({
 
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
-  const springConfig = { stiffness: 180, damping: 22, mass: 0.5 };
+  // Silky smooth spring config — low stiffness, high damping, heavier mass
+  const springConfig = { stiffness: 60, damping: 20, mass: 1.2 };
   const cursorX = useSpring(rawX, springConfig);
   const cursorY = useSpring(rawY, springConfig);
+
   const scaleVal = useMotionValue(0);
-  const cursorScale = useSpring(scaleVal, { stiffness: 220, damping: 24 });
+  const cursorScale = useSpring(scaleVal, {
+    stiffness: 80,
+    damping: 22,
+    mass: 1,
+  });
   const cursorOpacity = useTransform(cursorScale, [0, 1], [0, 1]);
 
   // Detect touch device
@@ -83,7 +89,7 @@ const Work = ({
       const rect = container.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
       const progress = 1 - rect.bottom / (viewportHeight + rect.height);
-      const offset = progress * rect.height * 0.3;
+      const offset = progress * rect.height * 0.08;
       inner.style.transform = `translateY(${offset}px)`;
     };
 
@@ -137,7 +143,7 @@ const Work = ({
             {/* Desktop: spring cursor */}
             {!isMobile && (
               <motion.div
-                className="pointer-events-none absolute z-10 flex items-center justify-center bg-skin text-green px-4 py-2 pb-1 rounded-[16px] squircle"
+                className="pointer-events-none absolute z-10 flex items-center justify-center rounded-full bg-skin "
                 style={{
                   x: cursorX,
                   y: cursorY,
@@ -145,14 +151,41 @@ const Work = ({
                   translateY: "-50%",
                   scale: cursorScale,
                   opacity: cursorOpacity,
+                  width: 128,
+                  height: 128,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 60,
+                  damping: 20,
+                  mass: 1.2,
                 }}
               >
-                <motion.div style={{ opacity: cursorOpacity }}>
-                  <h3 className="select-none">Click</h3>
-                </motion.div>
+                <motion.h3
+                  className="select-none text-green"
+                  initial={{ opacity: 0, filter: "blur(4px)" }}
+                  animate={
+                    isHovered
+                      ? {
+                          opacity: 1,
+                          filter: "blur(0px)",
+                          transition: {
+                            delay: 0.08,
+                            duration: 0.3,
+                            ease: "easeOut",
+                          },
+                        }
+                      : {
+                          opacity: 0,
+                          filter: "blur(4px)",
+                          transition: { duration: 0.15 },
+                        }
+                  }
+                >
+                  Click
+                </motion.h3>
               </motion.div>
             )}
-
             {/* Mobile: tap hint — bottom center, fades in then out */}
             <AnimatePresence>
               {isMobile && showTapHint && (

@@ -51,7 +51,7 @@ export default function RainBackground() {
       });
 
       gsap.to(el, {
-        opacity: randomBetween(0.16, 0.32),
+        opacity: randomBetween(0.32, 0.64),
         duration: 1.2,
         delay,
         ease: "power1.in",

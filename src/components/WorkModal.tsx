@@ -96,7 +96,7 @@ const WorkModal = ({
         >
           <motion.div
             key="modal"
-            className="relative w-full sm:max-w-[560px] rounded-t-[24px] sm:rounded-[20px] overflow-hidden text-green bg-skin"
+            className="relative w-full sm:max-w-[560px] rounded-t-[16px] squircle sm:rounded-[20px] overflow-hidden text-green bg-skin"
             variants={modalVariants}
             initial="hidden"
             animate="visible"
@@ -104,9 +104,9 @@ const WorkModal = ({
             onClick={(e) => e.stopPropagation()}
           >
             {/* Drag handle — mobile only */}
-            <div className="flex justify-center pt-3 pb-1 sm:hidden">
+            {/* <div className="flex justify-center pt-3 pb-1 sm:hidden">
               <div className="w-10 h-1 rounded-full opacity-30 bg-current" />
-            </div>
+            </div> */}
 
             {/* Close button */}
             <motion.button
@@ -167,7 +167,7 @@ const WorkModal = ({
               {/* CTA */}
               <motion.div
                 variants={itemVariants}
-                className="pb-[env(safe-area-inset-bottom)]"
+                className="pb-[env(safe-area-inset-bottom)] w-fit"
               >
                 <Click path={url} content="Visit Live Site" target="_blank" />
               </motion.div>
