@@ -117,7 +117,7 @@ const Work = ({
         <div className="w-full max-w-[1536px]">
           <div
             ref={containerRef}
-            className="relative w-full aspect-[16/9] rounded-[12px] md:rounded-[16px] overflow-hidden squircle"
+            className="relative w-full aspect-square sm:aspect-[16/9] rounded-[12px] md:rounded-[16px] overflow-hidden squircle"
             style={{ cursor: isMobile ? "pointer" : "none" }}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => !isMobile && setIsHovered(true)}
